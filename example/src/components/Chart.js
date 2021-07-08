@@ -21,17 +21,62 @@ import { Line } from 'react-chartjs-2';
 const data = canvas => {
   const ctx = canvas.getContext('2d');
   // const g = ctx.createLinearGradient(...);
-
+  // const data = [{ x: 'Jan', net: 100, cogs: 50, gm: 50 }, { x: 'Feb', net: 120, cogs: 55, gm: 75 }];
+  // const cfg = {
+  //   type: 'bar',
+  //   data: {
+  //     labels: ['Jan', 'Feb'],
+  //     datasets: [{
+  //       label: 'Net sales',
+  //       data: data,
+  //       parsing: {
+  //         yAxisKey: 'net'
+  //       }
+  //     }, {
+  //       label: 'Cost of goods sold',
+  //       data: data,
+  //       parsing: {
+  //         yAxisKey: 'cogs'
+  //       }
+  //     }, {
+  //       label: 'Gross margin',
+  //       data: data,
+  //       parsing: {
+  //         yAxisKey: 'gm'
+  //       }
+  //     }]
+  //   },
+  // };
   return {
     labels: ['a', 'b', 'c'],
     datasets: [{
-      backgroundColor: ['red',
-        'blue',
-        'green'
-      ],
+      backgroundColor: ['red', 'blue', 'green'],
       data: [100, 200, 300]
       // ...the rest
+    },
+    {
+      backgroundColor: ['red',
+        'red',
+        'red'
+      ],
+      data: [150, 250, 350]
+      // ...the rest
+    },
+    {
+      backgroundColor: ['green',
+        'green',
+        'green'
+      ],
+      data: [{ id: 'Sales', nested: { value: 1500 } }, { id: 'Purchases', nested: { value: 500 } }],
+      options: {
+        parsing: {
+          xAxisKey: 'id',
+          yAxisKey: 'nested.value'
+        }
+      }
+      // ...the rest
     }],
+
   };
 }
 
