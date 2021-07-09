@@ -97,12 +97,16 @@ const data = canvas => {
     datasets: [{
       label: 'A',
       yAxisID: 'A',
-      backgroundColor: ['red', 'red', 'red', 'red', 'red'],
-      color: 'blue',
+      // backgroundColor: ['red', 'red', 'red', 'red', 'red'],
+      borderColor: 'red',
+      // color: "#F7464A",
+      // fillColor: "rgba(255, 187, 0, 1)",
+      // color: 'blue',
       data: [100, 96, 84, 76, 69]
     }, {
       label: 'B',
       yAxisID: 'B',
+      borderColor: 'green',
       data: [1, 1, 1, 1, 0]
     }]
 
@@ -116,21 +120,21 @@ const data = canvas => {
 
 
 const options = {
-  scales: {
-    yAxes: [{
-      id: 'A',
-      type: 'linear',
-      position: 'left',
-    }, {
-      id: 'B',
-      type: 'linear',
-      position: 'right',
-      ticks: {
-        max: 1,
-        min: 0
-      }
-    }]
-  }
+  // scales: {
+  //   yAxes: [{
+  //     id: 'A',
+  //     type: 'linear',
+  //     // position: 'left',
+  //   }, {
+  //     id: 'B',
+  //     type: 'linear',
+  //     position: 'right',
+  //     ticks: {
+  //       max: 1,
+  //       min: 0
+  //     }
+  //   }]
+  // }
 }
 export const Chart = () => {
   // const ref = useRef();
