@@ -2,10 +2,6 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 
 
-// 1,0.61495762,0.61202401,0.61756266,0.6190815,-0.00553865,-0.00412388,1625823192271,1625823192373,true
-// 2,0.61495762,0.61202401,0.61756266,0.6190815,-0.00553865,-0.00412388,1625823192584,1625823192492,true
-// 3,0.61492768,0.61202401,0.61755264,0.6190815,-0.00552863,-0.00415382,1625823192830,1625823192492,false
-// 4,0.61439874,0.61202401,0.61800354,0.6190815,-0.00597953,-0.00468276,1625823193001,1625823192492,false
 
 // Chart.defaults.global.legend.display = false; // eslint-disable-next-line no-unused-vars
 // const chart = new Chart(ctx, {
@@ -25,6 +21,8 @@ import { Line } from 'react-chartjs-2';
 // });
 // let canvas = document.getElementById("myChart");
 const data = canvas => {
+  // canvas.parentNode.style.height = '1280px';
+  // canvas.parentNode.style.width = '1280px';
   const ctx = canvas.getContext('2d');
   console.log('ctx=', ctx);
   const gradient = ctx.createLinearGradient(100, 0, 100, 2);
@@ -91,23 +89,28 @@ const data = canvas => {
     //   responsive: false
     // }
 
+    // number,bayGate,bayBith,sellGate,sellBith,diffSell,diffBay,timeServer,timeBith,init
+    // 1,0.61495762,0.61202401,0.61756266,0.6190815,-0.00553865,-0.00412388,1625823192271,1625823192373,true
+    // 2,0.61495762,0.61202401,0.61756266,0.6190815,-0.00553865,-0.00412388,1625823192584,1625823192492,true
+    // 3,0.61492768,0.61202401,0.61755264,0.6190815,-0.00552863,-0.00415382,1625823192830,1625823192492,false
+    // 4,0.61439874,0.61202401,0.61800354,0.6190815,-0.00597953,-0.00468276,1625823193001,1625823192492,false
 
-
-    labels: ['1', '2', '3', '4', '5'],
+    labels: ['101-1625823192271', '102-1625823192584', '103-1625823192830', '104-1625823193001'],
     datasets: [{
       label: 'A',
       yAxisID: 'A',
       // backgroundColor: ['red', 'red', 'red', 'red', 'red'],
+      backgroundColor: 'blue',
       borderColor: 'red',
       // color: "#F7464A",
       // fillColor: "rgba(255, 187, 0, 1)",
       // color: 'blue',
-      data: [100, 96, 84, 76, 69]
+      data: [100, 96, 84, 76]
     }, {
       label: 'B',
       yAxisID: 'B',
       borderColor: 'green',
-      data: [1, 1, 1, 1, 0]
+      data: [1, 1, 0, 1]
     }]
 
 
