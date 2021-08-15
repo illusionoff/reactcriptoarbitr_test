@@ -222,16 +222,16 @@ const options = {
   },
   scales: {
 
-    y1: {
-      ticks: {
-        // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-        // callback: function (val, index) {
-        //   // Hide the label of every 2nd dataset
-        //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
-        // },
-        color: 'red',
-      }
-    },
+    // y1: {
+    //   ticks: {
+    //     // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+    //     // callback: function (val, index) {
+    //     //   // Hide the label of every 2nd dataset
+    //     //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
+    //     // },
+    //     color: 'red',
+    //   }
+    // },
     // y: {
     //   type: 'linear',
     //   display: true,
@@ -242,7 +242,32 @@ const options = {
       display: true,
       position: 'right',
       // ticks: { color: 'red' },
-
+      ticks: {
+        // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+        // callback: function (val, index) {
+        //   // Hide the label of every 2nd dataset
+        //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
+        // },
+        color: 'red',
+      },
+      // grid line settings
+      grid: {
+        drawOnChartArea: false, // only want the grid lines for one axis to show up
+      },
+    },
+    y2: {
+      type: 'linear',
+      display: true,
+      position: 'left',
+      // ticks: { color: 'red' },
+      ticks: {
+        // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+        // callback: function (val, index) {
+        //   // Hide the label of every 2nd dataset
+        //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
+        // },
+        color: 'red',
+      },
       // grid line settings
       grid: {
         drawOnChartArea: false, // only want the grid lines for one axis to show up
