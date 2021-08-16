@@ -54,69 +54,7 @@ const data = canvas => {
   const ctx = canvas.getContext('2d');
   console.log('ctx=', ctx);
   const gradient = ctx.createLinearGradient(100, 0, 100, 2);
-  // // const g = ctx.createLinearGradient(...);
-  // // const data = [{ x: 'Jan', net: 100, cogs: 50, gm: 50 }, { x: 'Feb', net: 120, cogs: 55, gm: 75 }];
-  // // const cfg = {
-  // //   type: 'bar',
-  // //   data: {
-  // //     labels: ['Jan', 'Feb'],
-  // //     datasets: [{
-  // //       label: 'Net sales',
-  // //       data: data,
-  // //       parsing: {
-  // //         yAxisKey: 'net'
-  // //       }
-  // //     }, {
-  // //       label: 'Cost of goods sold',
-  // //       data: data,
-  // //       parsing: {
-  // //         yAxisKey: 'cogs'
-  // //       }
-  // //     }, {
-  // //       label: 'Gross margin',
-  // //       data: data,
-  // //       parsing: {
-  // //         yAxisKey: 'gm'
-  // //       }
-  // //     }]
-  // //   },
-  // // };
   return {
-    //   // backgroundColor: gradient,
-    //   // labels: ['a', 'b', 'c'],
-    //   // datasets: [{
-    //   //   label: 'test label',
-    //   //   backgroundColor: ['red', 'blue', 'green'],
-    //   //   data: [100, 200, 300]
-    //   //   // ...the rest
-    //   // },
-    //   // {
-    //   //   backgroundColor: ['red',
-    //   //     'red',
-    //   //     'red'
-    //   //   ],
-    //   //   data: [150, 250, 350]
-    //   //   // ...the rest
-    //   // },
-    //   //   // {
-    //   //   //   backgroundColor: ['green',
-    //   //   //     'green',
-    //   //   //     'green'
-    //   //   //   ],
-    //   //   //   data: [{ id: 'Sales', nested: { value: 1500 } }, { id: 'Purchases', nested: { value: 500 } }],
-    //   //   //   options: {
-    //   //   //     parsing: {
-    //   //   //       xAxisKey: 'id',
-    //   //   //       yAxisKey: 'nested.value'
-    //   //   //     }
-    //   //   //   }
-    //   //   //   // ...the rest
-    //   //   // }
-    //   // ],
-    //   // options: {
-    //   //   responsive: false
-    //   // }
-
     //   // number,bayGate,bayBith,sellGate,sellBith,diffSell,diffBay,timeServer,timeBith,init
     //   // 1,0.61495762,0.61202401,0.61756266,0.6190815,-0.00553865,-0.00412388,1625823192271,1625823192373,true
     //   // 2,0.61495762,0.61202401,0.61756266,0.6190815,-0.00553865,-0.00412388,1625823192584,1625823192492,true
@@ -125,20 +63,20 @@ const data = canvas => {
     backgroundColor: gradient, // что-то никакой разницы не видно
     labels: newDataY,
     datasets: [{
-      label: 'A',
-      // yAxisID: 'A',
+      label: 'a',
+      yAxisID: 'a',
       // backgroundColor: ['red', 'red', 'red', 'red', 'red'],
       backgroundColor: 'blue',
       borderColor: 'red',
       // color: "#F7464A",
       // fillColor: "rgba(255, 187, 0, 1)",
       // color: 'blue',
-      data: [100, 96, 84, 76, 100, 96, 84, 76, 100, 96, 84, 76]
+      data: [100, 96, 84, 76, 100, 96, 84, 76, 100, 96, 84, 76, 84, 76]
     }, {
-      label: 'B',
-      // yAxisID: 'B',
+      label: 'b',
+      yAxisID: 'b',
       borderColor: 'green',
-      data: [1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1]
+      data: [1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1]
     }]
 
     //   labels: ["January;2015", "February;2015", "March;2015", "January;2016", "February;2016", "March;2016"],
@@ -148,66 +86,10 @@ const data = canvas => {
     //     data: [12, 19, 3, 5, 2, 3]
     //   }]
 
-
   };
 }
 
-
 const options = {
-  // scales: {
-  //   yAxes: [{
-  //     id: 'A',
-  //     type: 'linear',
-  //     // position: 'left',
-  //   }, {
-  //     id: 'B',
-  //     type: 'linear',
-  //     position: 'right',
-  //     ticks: {
-  //       max: 1,
-  //       min: 0
-  //     }
-  //   }]
-  // }
-
-  // scales: {
-  //   xAxes: [
-  //     {
-  //       id: 'xAxis1',
-  //       type: "category",
-  //       ticks: {
-  //         callback: function (label) {
-  //           var month = label.split(";")[0];
-  //           var year = label.split(";")[1];
-  //           return month;
-  //         }
-  //       }
-  //     },
-  //     {
-  //       id: 'xAxis2',
-  //       type: "category",
-  //       gridLines: {
-  //         drawOnChartArea: false, // only want the grid lines for one axis to show up
-  //       },
-  //       ticks: {
-  //         callback: function (label) {
-  //           var month = label.split(";")[0];
-  //           var year = label.split(";")[1];
-  //           if (month === "February") {
-  //             return year;
-  //           } else {
-  //             return "";
-  //           }
-  //         }
-  //       }
-  //     }],
-  //   yAxes: [{
-  //     ticks: {
-  //       beginAtZero: true
-  //     }
-  //   }]
-  // }
-
   responsive: true,
   interaction: {
     mode: 'index',
@@ -222,22 +104,27 @@ const options = {
   },
   scales: {
 
-    // y1: {
-    //   ticks: {
-    //     // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-    //     // callback: function (val, index) {
-    //     //   // Hide the label of every 2nd dataset
-    //     //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
-    //     // },
-    //     color: 'red',
-    //   }
-    // },
+    a: {
+      type: 'linear',
+      display: true,
+      position: 'left',
+      ticks: {
+        // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+        // callback: function (val, index) {
+        //   // Hide the label of every 2nd dataset
+        //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
+        // },
+        color: 'red',
+      }
+    },
     // y: {
     //   type: 'linear',
     //   display: true,
     //   position: 'left',
     // },
-    y1: {
+
+
+    b: {
       type: 'linear',
       display: true,
       position: 'right',
@@ -248,31 +135,31 @@ const options = {
         //   // Hide the label of every 2nd dataset
         //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
         // },
-        color: 'red',
+        color: 'green',
       },
       // grid line settings
       grid: {
         drawOnChartArea: false, // only want the grid lines for one axis to show up
       },
     },
-    y2: {
-      type: 'linear',
-      display: true,
-      position: 'left',
-      // ticks: { color: 'red' },
-      ticks: {
-        // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-        // callback: function (val, index) {
-        //   // Hide the label of every 2nd dataset
-        //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
-        // },
-        color: 'red',
-      },
-      // grid line settings
-      grid: {
-        drawOnChartArea: false, // only want the grid lines for one axis to show up
-      },
-    },
+    // y2: {
+    //   type: 'linear',
+    //   display: true,
+    //   position: 'left',
+    //   // ticks: { color: 'red' },
+    //   ticks: {
+    //     // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+    //     // callback: function (val, index) {
+    //     //   // Hide the label of every 2nd dataset
+    //     //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
+    //     // },
+    //     color: 'green',
+    //   },
+    //   // grid line settings
+    //   grid: {
+    //     drawOnChartArea: false, // only want the grid lines for one axis to show up
+    //   },
+    // },
   }
 
 
