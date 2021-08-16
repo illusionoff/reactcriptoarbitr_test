@@ -179,7 +179,7 @@ const data2 = canvas => {
     backgroundColor: gradient, // что-то никакой разницы не видно
     labels: newDataY,
     datasets: [{
-      label: 'a',
+      label: 'percentBonus',
       yAxisID: 'a',
       // backgroundColor: ['red', 'red', 'red', 'red', 'red'],
       backgroundColor: 'blue',
@@ -187,13 +187,21 @@ const data2 = canvas => {
       // color: "#F7464A",
       // fillColor: "rgba(255, 187, 0, 1)",
       // color: 'blue',
-      data: [200, 96, 84, 76, 100, 96, 84, 76, 100, 96, 84, 76, 84, 76]
+      data: percentBonus
     }, {
-      label: 'b',
+      label: 'bayGate',
       yAxisID: 'b',
-      borderColor: 'green',
-      data: [2, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1]
-    }]
+      borderColor: 'blue',
+      data: [1.22034442, 1.22044442, 1.22056442, 1.23034442, 1.22184442, 1.217034442, 1.21784442, 1.22034442, 1.22034442, 1.22774442, 1.22554442, 1.22034442, 1.22034442, 1.22094442]
+    }, {
+      label: 'bayBith',
+      yAxisID: 'c',
+      borderColor: '#bbdefb',
+      data: [1.23034442, 1.22054442, 1.21956442, 1.23034442, 1.22384442, 1.215034442, 1.21884442, 1.22834442, 1.22434442, 1.22574442, 1.22654442, 1.22334442, 1.22034442, 1.22294442]
+    }
+
+
+    ]
 
     //   labels: ["January;2015", "February;2015", "March;2015", "January;2016", "February;2016", "March;2016"],
     //   datasets: [{
@@ -215,7 +223,7 @@ const options2 = {
   plugins: {
     title: {
       display: true,
-      text: 'Chart.js Line Chart - Multi Axis'
+      text: 'percentBonus'
     }
   },
   scales: {
@@ -231,7 +239,11 @@ const options2 = {
         //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
         // },
         color: 'red',
-      }
+      },
+      // grid line settings
+      grid: {
+        drawOnChartArea: false, // only want the grid lines for one axis to show up
+      },
     },
     // y: {
     //   type: 'linear',
@@ -244,6 +256,18 @@ const options2 = {
       type: 'linear',
       display: true,
       position: 'right',
+      title: {
+        display: true,
+        text: 'Value',
+        color: '#191',
+        font: {
+          family: 'Times',
+          size: 20,
+          style: 'normal',
+          lineHeight: 1.2
+        },
+        padding: { top: 30, left: 0, right: 0, bottom: 0 }
+      },
       // ticks: { color: 'red' },
       ticks: {
         // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
@@ -251,7 +275,29 @@ const options2 = {
         //   // Hide the label of every 2nd dataset
         //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
         // },
-        color: 'green',
+        color: 'blue', //#bbdefb голубой
+        // format: new Intl.NumberFormat('en-IN', { maximumFractionDigits: 5 })
+        // precision: 5,
+      },
+      // grid line settings
+      grid: {
+        drawOnChartArea: false, // only want the grid lines for one axis to show up
+      },
+    },
+    c: {
+      type: 'linear',
+      display: false,
+      position: 'right',
+      // ticks: { color: 'red' },
+      ticks: {
+        // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+        // callback: function (val, index) {
+        //   // Hide the label of every 2nd dataset
+        //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
+        // },
+        color: 'blue', //#bbdefb голубой
+        // format: new Intl.NumberFormat('en-IN', { maximumFractionDigits: 5 })
+        // precision: 5,
       },
       // grid line settings
       grid: {
@@ -292,19 +338,19 @@ export const Chart = () => {
         <div>
           <canvas id="myChart"></canvas>
         </div>
-        <Line data={data}
-          // ref={ref}
-          // width={100}
-          // height={50}
-          // options={{ maintainAspectRatio: false }}
-          options={options}
-        />
         <Line data={data2}
           // ref={ref}
           // width={100}
           // height={50}
           // options={{ maintainAspectRatio: false }}
           options={options2}
+        />
+        <Line data={data}
+          // ref={ref}
+          // width={100}
+          // height={50}
+          // options={{ maintainAspectRatio: false }}
+          options={options}
         />
 
       </div >
