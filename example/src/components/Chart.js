@@ -17,9 +17,23 @@ const timeGate = [1628959734593, 1628959734701, 1628959734802, 1628959734941, 16
 const timeBith = [1628959734593, 1628959734701, 1628959734802, 1628959734941, 1628959735001, 1628959735102, 1628959735209, 1628959735397, 1628959735499, 1628959735599, 1628959735704, 1628959735899, 1628959736010, 1628959736100];
 const percentBonus = [0.1, 0.05, 0.03, 0.1, 0.05, 0.03, 0.1, 0.05, 0.03, 0.1, 0.05, 0.03, 0.1, 0.05];
 
-const dataY = [1628959734593, 1628959734701, 1628959734802, 1628959734941, 1628959735001, 1628959735102, 1628959735209, 1628959735397, 1628959735499, 1628959735599, 1628959735704, 1628959735899, 1628959736010, 1628959736100];
+let dataY = [1628959734593, 1628959734701, 1628959734802, 1628959734941, 1628959735001, 1628959735102, 1628959735209, 1628959735397, 1628959735499, 1628959735599, 1628959735704, 1628959735899, 1628959736010, 1628959736100];
+let numberY = [104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117];
 
-const numberY = [104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117];
+let dataYTimeEnd = dataY[dataY.length - 1];
+let arrMore = [];
+let count = 118;
+for (let i = 0; i < 15; i++) {
+  dataYTimeEnd += 200;
+  arrMore.push(dataYTimeEnd);
+  numberY.push(count);
+  count++;
+}
+dataY = [...dataY, ...arrMore];
+
+
+
+
 console.log('numberY[2].toString()=', typeof numberY[2].toString());
 console.log('String', 'str');
 let newDataY = dataY.map((elem, index) => {
@@ -183,7 +197,7 @@ const data2 = canvas => {
       yAxisID: 'a',
       // backgroundColor: ['red', 'red', 'red', 'red', 'red'],
       backgroundColor: 'blue',
-      borderColor: 'red',
+      borderColor: 'green',
       // color: "#F7464A",
       // fillColor: "rgba(255, 187, 0, 1)",
       // color: 'blue',
@@ -198,8 +212,18 @@ const data2 = canvas => {
       yAxisID: 'c',
       borderColor: '#bbdefb',
       data: [1.23034442, 1.22054442, 1.21956442, 1.23034442, 1.22384442, 1.215034442, 1.21884442, 1.22834442, 1.22434442, 1.22574442, 1.22654442, 1.22334442, 1.22034442, 1.22294442]
+    }, {
+      label: 'sellGate',
+      yAxisID: 'd',
+      borderColor: 'red',
+      data: [1.25034442, 1.24954442, 1.24856442, 1.24934442, 1.24784442, 1.251034442, 1.25284442, 1.24634442, 1.24534442, 1.24874442, 1.25154442, 1.25434442, 1.25034442, 1.25294442]
+    },
+    {
+      label: 'sellBith',
+      yAxisID: 'e',
+      borderColor: '#f8bbd0',
+      data: [1.26034442, 1.25954442, 1.23856442, 1.26934442, 1.27784442, 1.261034442, 1.24284442, 1.25634442, 1.24934442, 1.23874442, 1.26154442, 1.26434442, 1.27034442, 1.26294442]
     }
-
 
     ]
 
@@ -232,6 +256,18 @@ const options2 = {
       type: 'linear',
       display: true,
       position: 'left',
+      title: {
+        display: true,
+        text: 'percentBonus',
+        color: '#191',
+        font: {
+          family: 'Times',
+          size: 20,
+          style: 'normal',
+          lineHeight: 1.2
+        },
+        padding: { top: 30, left: 0, right: 0, bottom: 0 }
+      },
       ticks: {
         // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
         // callback: function (val, index) {
@@ -258,7 +294,7 @@ const options2 = {
       position: 'right',
       title: {
         display: true,
-        text: 'Value',
+        text: 'price',
         color: '#191',
         font: {
           family: 'Times',
@@ -285,6 +321,16 @@ const options2 = {
       },
     },
     c: {
+      type: 'linear',
+      display: false,
+      position: 'right',
+    },
+    d: {
+      type: 'linear',
+      display: false,
+      position: 'right',
+    },
+    e: {
       type: 'linear',
       display: false,
       position: 'right',
